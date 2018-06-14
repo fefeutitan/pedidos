@@ -3,7 +3,6 @@ package com.fefeu.pedidos.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry.ObjectSqlTypeDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -35,8 +34,14 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
-		return repo.save(obj);
+		Categoria newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
+		
 	}
 
 	public void delete(Integer id) {
