@@ -12,11 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
 import com.fefeu.pedidos.domain.Cliente;
-import com.fefeu.pedidos.domain.enums.TipoCliente;
 import com.fefeu.pedidos.dto.ClienteDTO;
 import com.fefeu.pedidos.repositories.ClienteRepository;
 import com.fefeu.pedidos.resources.exceptions.FieldMessage;
-import com.fefeu.pedidos.services.validation.utils.BR;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
 	
